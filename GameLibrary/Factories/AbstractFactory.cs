@@ -13,8 +13,12 @@ namespace GameLibrary.Factories
         {
             switch (factoryType)
             {
-                case FactoryType.Creature: return 
+                case FactoryType.Creature: return new CreatureFactory();
+                case FactoryType.Weapon: return new WeaponFactory();
+                case FactoryType.DefensiveTool: return new DefensiveToolFactory();
             }
+
+            return new CreatureFactory();
         }
 
     }

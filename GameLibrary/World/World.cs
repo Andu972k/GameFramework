@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GameLibrary.Enemies;
 using GameLibrary.Interfaces;
 
 namespace GameLibrary.World
@@ -10,6 +11,7 @@ namespace GameLibrary.World
         public World((int x, int y) worldSize, List<IObjectInWorld> itemsInWorld = null) : base(worldSize, itemsInWorld)
         {
             
+
 
         }
 

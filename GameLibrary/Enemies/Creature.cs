@@ -8,10 +8,12 @@ namespace GameLibrary.Enemies
 
         #region InstanceFields
 
-        private double _hp;
-        private (int x, int y) _position;
-        private IAttackObject _weapon;
-        private IDefenseObject _defense;
+        protected double _hp;
+        protected (int x, int y) _position;
+        protected IAttackObject _weapon;
+        protected IDefenseObject _defense;
+        
+
 
         #endregion
         
