@@ -4,10 +4,7 @@ using System.Text;
 
 namespace GameLibrary.Interfaces
 {
-    public interface IAttackObject : IObjectInWorld, IIventoryItem
+    public interface IIventoryItem
     {
-
-        double AttackPoints { get;}
-
     }
 }

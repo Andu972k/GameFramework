@@ -5,7 +5,7 @@ using GameLibrary.Interfaces;
 
 namespace GameLibrary.DefensiveTools
 {
-    class DefensiveTool : IDefenseObject
+    public class DefensiveTool : IDefenseObject, IIventoryItem
     {
         #region InstanceFields
 

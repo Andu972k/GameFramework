@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using GameLibrary.Interfaces;
 
 namespace GameLibrary.Enemies
@@ -12,7 +13,7 @@ namespace GameLibrary.Enemies
         protected (int x, int y) _position;
         protected IAttackObject _weapon;
         protected IDefenseObject _defense;
-        
+        protected List<IIventoryItem> _inventory;
 
 
         #endregion
@@ -42,6 +43,12 @@ namespace GameLibrary.Enemies
         {
             get => _defense;
             set => _defense = value;
+        }
+
+        public List<IIventoryItem> Inventory
+        {
+            get => _inventory;
+            set => _inventory = value;
         }
 
         public bool IsDead => _hp <= 0;
@@ -74,10 +81,20 @@ namespace GameLibrary.Enemies
             }
         }
 
-        public virtual void PickUp()
+        public virtual void PickUp(IObjectInWorld objectToPickUp)
         {
+            if (objectToPickUp is ICreature || objectToPickUp is IObstacle)
+            {
+                Console.WriteLine("Cannot pick up");
+            }
+            else if (objectToPickUp is IAttackObject || objectToPickUp is IDefenseObject)
+            {
+                _inventory.Add((IIventoryItem)objectToPickUp);
+            }
 
         }
+
+         
 
 
         #endregion
