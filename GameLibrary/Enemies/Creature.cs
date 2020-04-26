@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Sockets;
 using GameLibrary.Interfaces;
 
 namespace GameLibrary.Enemies
@@ -94,7 +96,17 @@ namespace GameLibrary.Enemies
 
         }
 
-         
+        public virtual List<IAttackObject> GetWeapons(double minimumAttack)
+        {
+            var weapons =
+                from item in _inventory.FindAll(t => t.GetType() == typeof(IAttackObject))
+                where ((IAttackObject) item).AttackPoints > minimumAttack
+                select item;
+
+            return ((IEnumerable<IAttackObject>)weapons).ToList();
+            //return weapons.ToList().ConvertAll(t => (IAttackObject) t);
+
+        }
 
 
         #endregion
